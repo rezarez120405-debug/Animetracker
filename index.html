@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnimePicker - Gacha Tontonanmu!</title>
     
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#020617">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AnimePicker">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -74,7 +80,7 @@
 
             <div class="mb-6">
                 <label class="text-[9px] font-black uppercase text-slate-600 tracking-widest mb-3 block text-center font-bold">Pilih Genre (Multi-Genre)</label>
-                <div class="genre-grid grid grid-cols-3 gap-2 max-h-48 overflow-y-auto p-1">
+                <div class="genre-grid grid grid-cols-3 gap-2 max-h-48 overflow-y-auto p-1 text-center">
                     <div class="flex"><input type="checkbox" id="g1" value="1" class="hidden"><label for="g1" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Action</label></div>
                     <div class="flex"><input type="checkbox" id="g2" value="2" class="hidden"><label for="g2" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Adventure</label></div>
                     <div class="flex"><input type="checkbox" id="g4" value="4" class="hidden"><label for="g4" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Comedy</label></div>
@@ -113,15 +119,10 @@
                 <div class="p-8 -mt-12 relative">
                     <p id="animeTitleJP" class="text-blue-400 text-[9px] font-bold mb-1 truncate"></p>
                     <h2 id="animeTitle" class="text-xl font-black text-white mb-2 leading-tight">Judul Anime</h2>
-                    
                     <div id="animeDetails" class="flex flex-wrap gap-2 mb-4 text-[9px] font-bold text-slate-500 uppercase italic">
-                        <span id="infoSeason">Season ?</span> • 
-                        <span id="infoEpisodes">? Eps</span> • 
-                        <span id="infoDuration">? Min</span>
+                        <span id="infoSeason">Season ?</span> • <span id="infoEpisodes">? Eps</span> • <span id="infoDuration">? Min</span>
                     </div>
-
                     <div id="animeGenres" class="flex flex-wrap gap-1.5 mb-6"></div>
-
                     <div id="animeSynopsis" class="text-slate-400 text-[11px] leading-relaxed italic mb-6 bg-slate-950/50 p-4 rounded-2xl border border-slate-800/50"></div>
                     
                     <div class="grid grid-cols-2 gap-3">
@@ -132,19 +133,26 @@
             </div>
         </div>
 
-        <div class="bg-slate-900/30 p-6 rounded-3xl border border-slate-800/50 my-10 fade-in text-center">
+        <div class="bg-slate-900/30 p-6 rounded-3xl border border-slate-800/50 my-10 text-center">
             <h3 class="text-white text-xs font-black uppercase tracking-widest mb-3 font-bold">Apa itu AnimePicker?</h3>
             <p class="text-slate-500 text-[11px] leading-relaxed italic font-bold">
-                AnimePicker (AP) adalah alat gacha tontonan yang dirancang untuk membantu kamu menemukan anime berkualitas secara instan dari database **MyAnimeList**. Cocok buat kamu yang sering bingung milih judul baru.
+                AnimePicker (AP) adalah alat gacha tontonan instan dari database MyAnimeList. Cocok buat kamu yang lelah memilih judul tontonan baru.
             </p>
         </div>
 
         <footer class="mt-8 border-t border-slate-900 pt-8 pb-4 text-center">
-            <p class="text-[9px] font-black text-slate-600 uppercase tracking-[0.3em] mb-4 font-bold">Support by dll</p>
+            <div id="installContainer" class="hidden mb-8">
+                <button id="installBtn" class="w-full bg-slate-100 text-slate-950 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-all">
+                    <i class="fas fa-mobile-alt text-lg"></i> Instal Aplikasi Web
+                </button>
+                <p class="text-[8px] text-slate-600 mt-2 font-bold uppercase tracking-widest italic font-bold">Akses lebih cepat & tanpa browser!</p>
+            </div>
+
+            <p class="text-[9px] font-black text-slate-600 uppercase tracking-[0.3em] mb-4 font-bold">Support by s.id & dll</p>
             
-            <div class="bg-slate-900/50 inline-block p-4 rounded-2xl border border-slate-800 shadow-inner mb-6 w-full">
+            <div class="bg-slate-900/50 inline-block p-4 rounded-2xl border border-slate-800 shadow-inner mb-6 w-full text-center">
                 <p class="text-[10px] text-slate-400 font-bold mb-3 uppercase tracking-widest font-bold">Ada Masalah / Problem?</p>
-                <a href="https://wa.me/6285147099404?text=Halo%20Creator%20AnimePicker,%20saya%20menemukan%20masalah..." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase transition-all shadow-lg shadow-emerald-900/20">
+                <a href="https://wa.me/6285147099404?text=Halo%20Creator%20AnimePicker..." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase transition-all shadow-lg shadow-emerald-900/20">
                     <i class="fab fa-whatsapp text-lg"></i> Hubungi Creator
                 </a>
             </div>
@@ -163,6 +171,7 @@
     </div>
 
     <script>
+        // Logika Gacha, Info & Translate (Optimized)
         const fetchBtn = document.getElementById('fetchBtn');
         const typeFilter = document.getElementById('typeFilter');
         const studioFilter = document.getElementById('studioFilter');
@@ -179,7 +188,6 @@
             loading.classList.remove('hidden');
             result.classList.add('hidden');
             trailerBtn.classList.add('hidden');
-            
             const genres = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(el => el.value).join(',');
             const studio = studioFilter.value;
             const type = typeFilter.value;
@@ -193,8 +201,8 @@
                 const data = await response.json();
                 if (data.data && data.data.length > 0) {
                     displayAnime(data.data[Math.floor(Math.random() * data.data.length)]);
-                } else { alert("Kombinasi filter terlalu spesifik. Coba kurangi genre!"); }
-            } catch (error) { alert("Server Sibuk! Coba lagi."); }
+                } else { alert("Kombinasi filter terlalu spesifik."); }
+            } catch (error) { alert("Server Sibuk!"); }
             finally { loading.classList.add('hidden'); }
         }
 
@@ -206,13 +214,9 @@
             document.getElementById('animeSynopsis').innerText = anime.synopsis || "No synopsis.";
             currentSynopsis = anime.synopsis || "";
             document.getElementById('malLink').href = anime.url;
-
-            // Update Rich Info
             document.getElementById('infoSeason').innerText = (anime.season ? anime.season + " " + anime.year : "N/A Year");
             document.getElementById('infoEpisodes').innerText = `${anime.episodes || '?'} Eps`;
             document.getElementById('infoDuration').innerText = anime.duration || "? Min";
-
-            // Update Genres Chips
             const genreContainer = document.getElementById('animeGenres');
             genreContainer.innerHTML = '';
             anime.genres.forEach(g => {
@@ -221,7 +225,6 @@
                 span.innerText = g.name;
                 genreContainer.appendChild(span);
             });
-
             if (anime.trailer && anime.trailer.embed_url) {
                 currentTrailerUrl = anime.trailer.embed_url;
                 trailerBtn.classList.remove('hidden');
@@ -244,6 +247,26 @@
                 translateBtn.classList.add('opacity-50', 'bg-emerald-600', 'text-white');
             } catch (e) { translateBtn.innerText = "Error"; }
         }
+
+        // --- PWA LOGIC ---
+        let deferredPrompt;
+        const installContainer = document.getElementById('installContainer');
+        const installBtn = document.getElementById('installBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installContainer.classList.remove('hidden');
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+                installContainer.classList.add('hidden');
+            }
+        });
 
         trailerBtn.addEventListener('click', () => { document.getElementById('trailerFrame').src = currentTrailerUrl; videoModal.classList.remove('hidden'); });
         document.getElementById('closeModal').addEventListener('click', () => { videoModal.classList.add('hidden'); document.getElementById('trailerFrame').src = ""; });
