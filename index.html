@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnimePicker - Temukan Tontonanmu</title>
+    <title>AnimePicker - Gacha Tontonanmu!</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -16,29 +16,79 @@
         @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .fade-in { animation: fadeIn 0.5s ease-in; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        input[type="checkbox"]:checked + label {
+            background-color: #2563eb;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .logo-ap {
+            width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border-radius: 18px;
+            font-weight: 900; font-size: 24px; color: white;
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+        }
+
+        .genre-grid::-webkit-scrollbar { width: 4px; }
+        .genre-grid::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-200 min-h-screen flex flex-col items-center">
 
     <div class="max-w-md w-full px-6 py-12 flex-grow">
-        <div class="text-center mb-10">
-            <div class="inline-block bg-blue-600/10 p-4 rounded-3xl mb-4 shadow-inner">
-                <i class="fas fa-rocket text-3xl text-blue-500"></i>
-            </div>
+        <div class="flex flex-col items-center text-center mb-10">
+            <div class="logo-ap mb-4">AP</div>
             <h1 class="text-3xl font-extrabold text-white tracking-tighter uppercase italic">
                 Anime<span class="text-blue-500">Picker</span>
             </h1>
-            <p class="text-slate-500 text-sm mt-2 font-medium">Temukan petualangan barumu hari ini!</p>
+            <p class="text-slate-500 text-[11px] mt-2 font-bold uppercase tracking-[0.2em]">Bosan Memilih? Biar Kami Yang Pilihkan.</p>
         </div>
 
-        <div class="bg-slate-900 p-6 rounded-[2rem] border border-slate-800 shadow-2xl mb-8">
-            <div class="mb-6 text-center">
-                <label class="text-[10px] font-black uppercase text-slate-500 tracking-[0.2em]">Pilih Kategori</label>
-                <select id="typeFilter" class="mt-3 w-full bg-slate-800 border border-slate-700 rounded-2xl px-4 py-4 outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm text-white appearance-none text-center font-bold">
-                    <option value="tv">📺 Series (Eps)</option>
-                    <option value="movie">🎬 Movie</option>
-                    <option value="">🌀 Campuran</option>
-                </select>
+        <div class="bg-slate-900 p-6 rounded-[2.5rem] border border-slate-800 shadow-2xl mb-8">
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="text-center">
+                    <label class="text-[9px] font-black uppercase text-slate-600 tracking-widest text-center font-bold">Format</label>
+                    <select id="typeFilter" class="mt-2 w-full bg-slate-800 border border-slate-700 rounded-xl px-2 py-3 outline-none focus:ring-2 focus:ring-blue-500 text-xs text-white font-bold appearance-none text-center">
+                        <option value="tv">Series</option>
+                        <option value="movie">Movie</option>
+                        <option value="">Semua</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <label class="text-[9px] font-black uppercase text-slate-600 tracking-widest text-center font-bold">Studio</label>
+                    <select id="studioFilter" class="mt-2 w-full bg-slate-800 border border-slate-700 rounded-xl px-2 py-3 outline-none focus:ring-2 focus:ring-blue-500 text-xs text-white font-bold appearance-none text-center">
+                        <option value="">Semua</option>
+                        <option value="569">MAPPA</option>
+                        <option value="801">ufotable</option>
+                        <option value="21">Ghibli</option>
+                        <option value="11">Madhouse</option>
+                        <option value="2">Kyoto Ani</option>
+                        <option value="18">Toei</option>
+                        <option value="56">Wit Studio</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="text-[9px] font-black uppercase text-slate-600 tracking-widest mb-3 block text-center font-bold">Pilih Genre (Multi-Genre)</label>
+                <div class="genre-grid grid grid-cols-3 gap-2 max-h-48 overflow-y-auto p-1">
+                    <div class="flex"><input type="checkbox" id="g1" value="1" class="hidden"><label for="g1" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Action</label></div>
+                    <div class="flex"><input type="checkbox" id="g2" value="2" class="hidden"><label for="g2" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Adventure</label></div>
+                    <div class="flex"><input type="checkbox" id="g4" value="4" class="hidden"><label for="g4" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Comedy</label></div>
+                    <div class="flex"><input type="checkbox" id="g8" value="8" class="hidden"><label for="g8" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Drama</label></div>
+                    <div class="flex"><input type="checkbox" id="g10" value="10" class="hidden"><label for="g10" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Fantasy</label></div>
+                    <div class="flex"><input type="checkbox" id="g14" value="14" class="hidden"><label for="g14" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Horror</label></div>
+                    <div class="flex"><input type="checkbox" id="g7" value="7" class="hidden"><label for="g7" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Mystery</label></div>
+                    <div class="flex"><input type="checkbox" id="g22" value="22" class="hidden"><label for="g22" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Romance</label></div>
+                    <div class="flex"><input type="checkbox" id="g24" value="24" class="hidden"><label for="g24" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Sci-Fi</label></div>
+                    <div class="flex"><input type="checkbox" id="g36" value="36" class="hidden"><label for="g36" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Slice of Life</label></div>
+                    <div class="flex"><input type="checkbox" id="g37" value="37" class="hidden"><label for="g37" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Supernatural</label></div>
+                    <div class="flex"><input type="checkbox" id="g41" value="41" class="hidden"><label for="g41" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Suspense</label></div>
+                    <div class="flex"><input type="checkbox" id="g30" value="30" class="hidden"><label for="g30" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Sports</label></div>
+                </div>
             </div>
 
             <button id="fetchBtn" class="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black shadow-lg shadow-blue-900/40 active:scale-95 transition-all flex items-center justify-center gap-3 uppercase text-xs tracking-wider">
@@ -47,162 +97,156 @@
         </div>
 
         <div id="loading" class="hidden flex flex-col items-center justify-center my-10 fade-in">
-            <div class="loader w-12 h-12 border-4 border-slate-800 rounded-full mb-4"></div>
-            <p id="loadingText" class="text-[10px] text-slate-500 font-black uppercase tracking-[0.3em]">Menghubungkan ke Pusat Data...</p>
+            <div class="loader w-10 h-10 border-4 border-slate-800 rounded-full mb-4"></div>
+            <p class="text-[9px] text-slate-500 font-black uppercase tracking-[0.3em]">Menyortir Database...</p>
         </div>
 
         <div id="animeResult" class="hidden fade-in">
-            <div class="anime-card bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-2xl">
-                <div class="relative h-80">
+            <div class="anime-card bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-2xl relative">
+                <div class="relative h-72">
                     <img id="animeImg" src="" alt="Poster" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent text-transparent"></div>
-                    <div id="animeRating" class="absolute top-5 right-5 bg-yellow-400 text-slate-950 font-black px-4 py-1.5 rounded-full text-sm shadow-xl flex items-center gap-1">
-                        ⭐ 0.0
-                    </div>
+                    <div id="animeRating" class="absolute top-4 right-4 bg-yellow-400 text-slate-950 font-black px-3 py-1 rounded-full text-[10px] shadow-xl">⭐ 0.0</div>
+                    <button id="trailerBtn" class="hidden absolute bottom-14 right-4 bg-red-600 text-white p-3 rounded-full shadow-lg active:scale-90 transition-all"><i class="fab fa-youtube text-lg"></i></button>
                 </div>
                 
                 <div class="p-8 -mt-12 relative">
-                    <p id="animeTitleJP" class="text-blue-400 text-[10px] font-bold mb-1 uppercase tracking-widest truncate"></p>
-                    <h2 id="animeTitle" class="text-2xl font-black text-white mb-4 leading-tight italic">Judul Anime</h2>
+                    <p id="animeTitleJP" class="text-blue-400 text-[9px] font-bold mb-1 truncate"></p>
+                    <h2 id="animeTitle" class="text-xl font-black text-white mb-2 leading-tight">Judul Anime</h2>
                     
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span id="animeEpisodes" class="bg-slate-800 text-slate-300 text-[10px] font-bold px-3 py-1.5 rounded-lg border border-slate-700 uppercase italic">0 Eps</span>
-                        <span id="animeStatus" class="bg-slate-800 text-slate-300 text-[10px] font-bold px-3 py-1.5 rounded-lg border border-slate-700 uppercase italic">Status</span>
+                    <div id="animeDetails" class="flex flex-wrap gap-2 mb-4 text-[9px] font-bold text-slate-500 uppercase italic">
+                        <span id="infoSeason">Season ?</span> • 
+                        <span id="infoEpisodes">? Eps</span> • 
+                        <span id="infoDuration">? Min</span>
                     </div>
 
-                    <div class="bg-slate-950/50 p-6 rounded-[1.5rem] border border-slate-800/50 mb-6 shadow-inner">
-                        <p id="animeSynopsis" class="text-slate-400 text-xs leading-relaxed italic"></p>
-                        <button id="translateBtn" class="mt-5 w-full py-3 bg-blue-600/10 text-blue-400 hover:bg-blue-600 hover:text-white rounded-xl font-black text-[10px] uppercase transition-all flex items-center justify-center gap-2 tracking-widest border border-blue-600/20">
-                            <i class="fas fa-language text-sm"></i> Terjemahkan
-                        </button>
-                    </div>
+                    <div id="animeGenres" class="flex flex-wrap gap-1.5 mb-6"></div>
+
+                    <div id="animeSynopsis" class="text-slate-400 text-[11px] leading-relaxed italic mb-6 bg-slate-950/50 p-4 rounded-2xl border border-slate-800/50"></div>
                     
-                    <a id="malLink" href="#" target="_blank" class="flex items-center justify-center gap-2 w-full py-4 bg-slate-800/50 hover:bg-slate-800 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border border-slate-700">
-                        <i class="fab fa-medium-m text-blue-400"></i> Lihat Detail di MyAnimeList
-                    </a>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button id="translateBtn" class="py-3 bg-blue-600/10 text-blue-400 hover:bg-blue-600 hover:text-white rounded-xl font-black text-[9px] uppercase transition-all border border-blue-600/20">Terjemahkan</button>
+                        <a id="malLink" href="#" target="_blank" class="flex items-center justify-center py-3 bg-slate-800 text-white rounded-xl text-[9px] font-black uppercase border border-slate-700">Link MAL</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <footer class="mt-16 border-t border-slate-900 pt-8 pb-4 text-center">
-            <p class="text-[9px] font-black text-slate-600 uppercase tracking-[0.3em] mb-6">Didukung Oleh Teknologi Hebat</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-                <div class="flex flex-col items-center">
-                    <i class="fas fa-database text-xl mb-1"></i>
-                    <span class="text-[8px] font-bold">Jikan API</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <i class="fas fa-list text-xl mb-1"></i>
-                    <span class="text-[8px] font-bold">MyAnimeList</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <i class="fas fa-globe text-xl mb-1"></i>
-                    <span class="text-[8px] font-bold">MyMemory</span>
-                </div>
+        <div class="bg-slate-900/30 p-6 rounded-3xl border border-slate-800/50 my-10 fade-in text-center">
+            <h3 class="text-white text-xs font-black uppercase tracking-widest mb-3 font-bold">Apa itu AnimePicker?</h3>
+            <p class="text-slate-500 text-[11px] leading-relaxed italic font-bold">
+                AnimePicker (AP) adalah alat gacha tontonan yang dirancang untuk membantu kamu menemukan anime berkualitas secara instan dari database **MyAnimeList**. Cocok buat kamu yang sering bingung milih judul baru.
+            </p>
+        </div>
+
+        <footer class="mt-8 border-t border-slate-900 pt-8 pb-4 text-center">
+            <p class="text-[9px] font-black text-slate-600 uppercase tracking-[0.3em] mb-4 font-bold">Support by dll</p>
+            
+            <div class="bg-slate-900/50 inline-block p-4 rounded-2xl border border-slate-800 shadow-inner mb-6 w-full">
+                <p class="text-[10px] text-slate-400 font-bold mb-3 uppercase tracking-widest font-bold">Ada Masalah / Problem?</p>
+                <a href="https://wa.me/6285147099404?text=Halo%20Creator%20AnimePicker,%20saya%20menemukan%20masalah..." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase transition-all shadow-lg shadow-emerald-900/20">
+                    <i class="fab fa-whatsapp text-lg"></i> Hubungi Creator
+                </a>
             </div>
-            <p class="mt-8 text-[10px] text-slate-700 font-medium italic">
-                Dibuat dengan ❤️ untuk komunitas Anime Indonesia.
+
+            <p class="text-[8px] text-slate-700 font-bold uppercase tracking-widest font-bold">
+                Short URL by <span class="text-slate-500">S.id</span> • Built with ❤️
             </p>
         </footer>
+    </div>
+
+    <div id="videoModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4">
+        <div class="w-full max-w-xl bg-slate-900 rounded-3xl overflow-hidden relative shadow-2xl">
+            <button id="closeModal" class="absolute top-4 right-4 text-white text-3xl z-10"><i class="fas fa-times-circle"></i></button>
+            <div class="aspect-video"><iframe id="trailerFrame" class="w-full h-full" src="" frameborder="0" allowfullscreen></iframe></div>
+        </div>
     </div>
 
     <script>
         const fetchBtn = document.getElementById('fetchBtn');
         const typeFilter = document.getElementById('typeFilter');
+        const studioFilter = document.getElementById('studioFilter');
         const loading = document.getElementById('loading');
-        const loadingText = document.getElementById('loadingText');
         const result = document.getElementById('animeResult');
+        const trailerBtn = document.getElementById('trailerBtn');
+        const videoModal = document.getElementById('videoModal');
         const translateBtn = document.getElementById('translateBtn');
         
         let currentSynopsis = ""; 
-
-        // Pesan-pesan interaktif saat loading/error
-        const busyMessages = [
-            "Waduh, pusat datanya lagi sibuk banget nih...",
-            "Servernya lagi antri, sabar sebentar ya...",
-            "Aduh, koneksinya agak macet, coba lagi ya!",
-            "Pusat data lagi penuh, yuk ketuk lagi tombolnya!",
-            "Maaf ya, database sedang beristirahat sebentar..."
-        ];
+        let currentTrailerUrl = "";
 
         async function getRandomAnime() {
             loading.classList.remove('hidden');
             result.classList.add('hidden');
-            loadingText.innerText = "Membuka Gerbang Database...";
+            trailerBtn.classList.add('hidden');
             
-            translateBtn.innerHTML = '<i class="fas fa-language text-sm"></i> Terjemahkan';
-            translateBtn.classList.remove('bg-emerald-600', 'text-white', 'opacity-50');
-            translateBtn.classList.add('bg-blue-600/10', 'text-blue-400');
-
+            const genres = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(el => el.value).join(',');
+            const studio = studioFilter.value;
             const type = typeFilter.value;
-            const randomPage = Math.floor(Math.random() * 5) + 1;
+            
+            let apiUrl = `https://api.jikan.moe/v4/anime?type=${type}&order_by=score&sort=desc&page=${Math.floor(Math.random() * 3) + 1}`;
+            if (genres) apiUrl += `&genres=${genres}`;
+            if (studio) apiUrl += `&producers=${studio}`;
             
             try {
-                // Gunakan timeout sederhana agar tidak menunggu selamanya
-                const response = await fetch(`https://api.jikan.moe/v4/top/anime?type=${type}&page=${randomPage}`);
-                
-                if (!response.ok) throw new Error("Busy");
-                
+                const response = await fetch(apiUrl);
                 const data = await response.json();
-                
                 if (data.data && data.data.length > 0) {
-                    const randomIndex = Math.floor(Math.random() * data.data.length);
-                    displayAnime(data.data[randomIndex]);
-                }
-            } catch (error) {
-                // JIKA SIBUK / ERROR: Tampilkan pesan interaktif
-                const msg = busyMessages[Math.floor(Math.random() * busyMessages.length)];
-                alert(msg);
-                loadingText.innerText = "Gagal Terhubung. Coba Lagi!";
-            } finally {
-                loading.classList.add('hidden');
-            }
+                    displayAnime(data.data[Math.floor(Math.random() * data.data.length)]);
+                } else { alert("Kombinasi filter terlalu spesifik. Coba kurangi genre!"); }
+            } catch (error) { alert("Server Sibuk! Coba lagi."); }
+            finally { loading.classList.add('hidden'); }
         }
 
         function displayAnime(anime) {
             document.getElementById('animeTitle').innerText = anime.title;
-            document.getElementById('animeTitleJP').innerText = anime.title_japanese || "TITEL JEPANG TIDAK ADA";
+            document.getElementById('animeTitleJP').innerText = anime.title_japanese || "";
             document.getElementById('animeImg').src = anime.images.jpg.large_image_url;
-            document.getElementById('animeRating').innerHTML = `<i class="fas fa-star text-yellow-500 mr-1"></i> ${anime.score || 'N/A'}`;
-            document.getElementById('animeEpisodes').innerText = `${anime.episodes || '?'} Episodes`;
-            document.getElementById('animeStatus').innerText = anime.status;
-            
-            currentSynopsis = anime.synopsis || "No synopsis available.";
-            document.getElementById('animeSynopsis').innerText = currentSynopsis;
+            document.getElementById('animeRating').innerHTML = `⭐ ${anime.score || 'N/A'}`;
+            document.getElementById('animeSynopsis').innerText = anime.synopsis || "No synopsis.";
+            currentSynopsis = anime.synopsis || "";
             document.getElementById('malLink').href = anime.url;
 
+            // Update Rich Info
+            document.getElementById('infoSeason').innerText = (anime.season ? anime.season + " " + anime.year : "N/A Year");
+            document.getElementById('infoEpisodes').innerText = `${anime.episodes || '?'} Eps`;
+            document.getElementById('infoDuration').innerText = anime.duration || "? Min";
+
+            // Update Genres Chips
+            const genreContainer = document.getElementById('animeGenres');
+            genreContainer.innerHTML = '';
+            anime.genres.forEach(g => {
+                const span = document.createElement('span');
+                span.className = "bg-blue-600/10 text-blue-500 text-[8px] font-black px-2 py-1 rounded-md uppercase border border-blue-600/20";
+                span.innerText = g.name;
+                genreContainer.appendChild(span);
+            });
+
+            if (anime.trailer && anime.trailer.embed_url) {
+                currentTrailerUrl = anime.trailer.embed_url;
+                trailerBtn.classList.remove('hidden');
+            }
             result.classList.remove('hidden');
-            // Scroll otomatis ke hasil
             result.scrollIntoView({ behavior: 'smooth' });
+            translateBtn.innerHTML = "Terjemahkan";
+            translateBtn.classList.remove('opacity-50', 'bg-emerald-600', 'text-white');
         }
 
         async function translateText() {
             if (!currentSynopsis || translateBtn.classList.contains('opacity-50')) return;
-            
-            translateBtn.innerHTML = '<i class="fas fa-circle-notch animate-spin"></i> Menghubungi Penerjemah...';
-            
-            const safeText = currentSynopsis.length > 450 
-                ? currentSynopsis.substring(0, 450) + "..." 
-                : currentSynopsis;
-            
-            const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(safeText)}&langpair=en|id`;
-            
+            translateBtn.innerHTML = "...";
+            const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(currentSynopsis.substring(0, 450))}&langpair=en|id`;
             try {
                 const res = await fetch(url);
                 const data = await res.json();
-                
-                if (data.responseData && data.responseData.translatedText) {
-                    document.getElementById('animeSynopsis').innerText = data.responseData.translatedText;
-                    translateBtn.innerHTML = '<i class="fas fa-check text-emerald-400"></i> Selesai!';
-                    translateBtn.classList.replace('bg-blue-600/10', 'bg-emerald-600');
-                    translateBtn.classList.replace('text-blue-400', 'text-white');
-                    translateBtn.classList.add('opacity-50');
-                }
-            } catch (e) {
-                translateBtn.innerText = "Waduh, Gagal Terjemah!";
-            }
+                document.getElementById('animeSynopsis').innerText = data.responseData.translatedText;
+                translateBtn.innerHTML = "Selesai!";
+                translateBtn.classList.add('opacity-50', 'bg-emerald-600', 'text-white');
+            } catch (e) { translateBtn.innerText = "Error"; }
         }
 
+        trailerBtn.addEventListener('click', () => { document.getElementById('trailerFrame').src = currentTrailerUrl; videoModal.classList.remove('hidden'); });
+        document.getElementById('closeModal').addEventListener('click', () => { videoModal.classList.add('hidden'); document.getElementById('trailerFrame').src = ""; });
         fetchBtn.addEventListener('click', getRandomAnime);
         translateBtn.addEventListener('click', translateText);
     </script>
