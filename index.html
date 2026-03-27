@@ -147,6 +147,14 @@
                 </button>
                 <p class="text-[8px] text-slate-600 mt-2 font-bold uppercase tracking-widest italic font-bold">Akses lebih cepat & tanpa browser!</p>
             </div>
+<div id="pwaDownloadContainer" class="hidden mb-6 px-4">
+    <button id="pwaDownloadBtn" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest shadow-[0_10px_20px_-5px_rgba(37,99,235,0.4)] flex items-center justify-center gap-3 active:scale-95 transition-all border border-blue-500/30">
+        <i class="fas fa-download text-lg"></i> Unduh & Instal APK Web
+    </button>
+    <p class="text-[8px] text-slate-500 mt-3 font-bold uppercase tracking-widest italic text-center">
+        Klik untuk memasang AnimePicker di layar utama HP kamu
+    </p>
+</div>
 
             <p class="text-[9px] font-black text-slate-600 uppercase tracking-[0.3em] mb-4 font-bold">Support by s.id & dll</p>
             
@@ -272,6 +280,40 @@
         document.getElementById('closeModal').addEventListener('click', () => { videoModal.classList.add('hidden'); document.getElementById('trailerFrame').src = ""; });
         fetchBtn.addEventListener('click', getRandomAnime);
         translateBtn.addEventListener('click', translateText);
+
+        // Logika Pemicu Instalasi PWA
+let installPrompt;
+const pwaContainer = document.getElementById('pwaDownloadContainer');
+const pwaBtn = document.getElementById('pwaDownloadBtn');
+
+window.addEventListener('beforeinstallprompt', (event) => {
+    // Simpan event agar bisa dipicu nanti
+    event.preventDefault();
+    installPrompt = event;
+    // Munculkan tombol jika browser mendukung instalasi
+    pwaContainer.classList.remove('hidden');
+});
+
+pwaBtn.addEventListener('click', async () => {
+    if (!installPrompt) return;
+    
+    // Munculkan dialog instalasi bawaan browser
+    installPrompt.prompt();
+    
+    const { outcome } = await installPrompt.userChoice;
+    if (outcome === 'accepted') {
+        console.log('User menginstal aplikasi');
+        pwaContainer.classList.add('hidden');
+    }
+    installPrompt = null;
+});
+
+// Sembunyikan tombol jika aplikasi sudah terinstal
+window.addEventListener('appinstalled', () => {
+    pwaContainer.classList.add('hidden');
+    console.log('AnimePicker sudah terpasang!');
+});
+
     </script>
 </body>
 </html>
