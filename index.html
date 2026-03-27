@@ -78,22 +78,15 @@
                 </div>
             </div>
 
-            <div class="mb-6">
-                <label class="text-[9px] font-black uppercase text-slate-600 tracking-widest mb-3 block text-center font-bold">Pilih Genre (Multi-Genre)</label>
-                <div class="genre-grid grid grid-cols-3 gap-2 max-h-48 overflow-y-auto p-1 text-center">
+            <div class="mb-6 text-center">
+                <label class="text-[9px] font-black uppercase text-slate-600 tracking-widest mb-3 block font-bold">Pilih Genre</label>
+                <div class="genre-grid grid grid-cols-3 gap-2 max-h-48 overflow-y-auto p-1">
                     <div class="flex"><input type="checkbox" id="g1" value="1" class="hidden"><label for="g1" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Action</label></div>
                     <div class="flex"><input type="checkbox" id="g2" value="2" class="hidden"><label for="g2" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Adventure</label></div>
                     <div class="flex"><input type="checkbox" id="g4" value="4" class="hidden"><label for="g4" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Comedy</label></div>
                     <div class="flex"><input type="checkbox" id="g8" value="8" class="hidden"><label for="g8" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Drama</label></div>
                     <div class="flex"><input type="checkbox" id="g10" value="10" class="hidden"><label for="g10" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Fantasy</label></div>
-                    <div class="flex"><input type="checkbox" id="g14" value="14" class="hidden"><label for="g14" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Horror</label></div>
-                    <div class="flex"><input type="checkbox" id="g7" value="7" class="hidden"><label for="g7" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Mystery</label></div>
                     <div class="flex"><input type="checkbox" id="g22" value="22" class="hidden"><label for="g22" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Romance</label></div>
-                    <div class="flex"><input type="checkbox" id="g24" value="24" class="hidden"><label for="g24" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Sci-Fi</label></div>
-                    <div class="flex"><input type="checkbox" id="g36" value="36" class="hidden"><label for="g36" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Slice of Life</label></div>
-                    <div class="flex"><input type="checkbox" id="g37" value="37" class="hidden"><label for="g37" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Supernatural</label></div>
-                    <div class="flex"><input type="checkbox" id="g41" value="41" class="hidden"><label for="g41" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Suspense</label></div>
-                    <div class="flex"><input type="checkbox" id="g30" value="30" class="hidden"><label for="g30" class="w-full text-center py-2 bg-slate-800 border border-slate-700 rounded-lg text-[9px] font-bold cursor-pointer transition-all uppercase">Sports</label></div>
                 </div>
             </div>
 
@@ -133,32 +126,18 @@
             </div>
         </div>
 
-        <div class="bg-slate-900/30 p-6 rounded-3xl border border-slate-800/50 my-10 text-center">
-            <h3 class="text-white text-xs font-black uppercase tracking-widest mb-3 font-bold">Apa itu AnimePicker?</h3>
-            <p class="text-slate-500 text-[11px] leading-relaxed italic font-bold">
-                AnimePicker (AP) adalah alat gacha tontonan instan dari database MyAnimeList. Cocok buat kamu yang lelah memilih judul tontonan baru.
-            </p>
-        </div>
-
-        <footer class="mt-8 border-t border-slate-900 pt-8 pb-4 text-center">
-            <div id="installContainer" class="hidden mb-8">
-                <button id="installBtn" class="w-full bg-slate-100 text-slate-950 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-all">
-                    <i class="fas fa-mobile-alt text-lg"></i> Instal Aplikasi Web
+        <footer class="mt-12 border-t border-slate-900 pt-8 pb-4 text-center">
+            
+            <div id="pwaDownloadContainer" class="hidden mb-10 px-4">
+                <button id="pwaDownloadBtn" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest shadow-[0_10px_20px_-5px_rgba(37,99,235,0.4)] flex items-center justify-center gap-3 active:scale-95 transition-all border border-blue-500/30">
+                    <i class="fas fa-download text-lg"></i> Unduh & Instal APK Web
                 </button>
-                <p class="text-[8px] text-slate-600 mt-2 font-bold uppercase tracking-widest italic font-bold">Akses lebih cepat & tanpa browser!</p>
+                <p class="text-[8px] text-slate-500 mt-3 font-bold uppercase tracking-widest italic font-bold">Klik untuk memasang AnimePicker di layar utama HP kamu</p>
             </div>
-<div id="pwaDownloadContainer" class="hidden mb-6 px-4">
-    <button id="pwaDownloadBtn" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest shadow-[0_10px_20px_-5px_rgba(37,99,235,0.4)] flex items-center justify-center gap-3 active:scale-95 transition-all border border-blue-500/30">
-        <i class="fas fa-download text-lg"></i> Unduh & Instal APK Web
-    </button>
-    <p class="text-[8px] text-slate-500 mt-3 font-bold uppercase tracking-widest italic text-center">
-        Klik untuk memasang AnimePicker di layar utama HP kamu
-    </p>
-</div>
 
             <p class="text-[9px] font-black text-slate-600 uppercase tracking-[0.3em] mb-4 font-bold">Support by s.id & dll</p>
             
-            <div class="bg-slate-900/50 inline-block p-4 rounded-2xl border border-slate-800 shadow-inner mb-6 w-full text-center">
+            <div class="bg-slate-900/50 inline-block p-4 rounded-2xl border border-slate-800 shadow-inner mb-6 w-full">
                 <p class="text-[10px] text-slate-400 font-bold mb-3 uppercase tracking-widest font-bold">Ada Masalah / Problem?</p>
                 <a href="https://wa.me/6285147099404?text=Halo%20Creator%20AnimePicker..." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase transition-all shadow-lg shadow-emerald-900/20">
                     <i class="fab fa-whatsapp text-lg"></i> Hubungi Creator
@@ -179,10 +158,7 @@
     </div>
 
     <script>
-        // Logika Gacha, Info & Translate (Optimized)
         const fetchBtn = document.getElementById('fetchBtn');
-        const typeFilter = document.getElementById('typeFilter');
-        const studioFilter = document.getElementById('studioFilter');
         const loading = document.getElementById('loading');
         const result = document.getElementById('animeResult');
         const trailerBtn = document.getElementById('trailerBtn');
@@ -196,11 +172,12 @@
             loading.classList.remove('hidden');
             result.classList.add('hidden');
             trailerBtn.classList.add('hidden');
-            const genres = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(el => el.value).join(',');
-            const studio = studioFilter.value;
-            const type = typeFilter.value;
             
-            let apiUrl = `https://api.jikan.moe/v4/anime?type=${type}&order_by=score&sort=desc&page=${Math.floor(Math.random() * 3) + 1}`;
+            const genres = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(el => el.value).join(',');
+            const studio = document.getElementById('studioFilter').value;
+            const type = document.getElementById('typeFilter').value;
+            
+            let apiUrl = `https://api.jikan.moe/v4/anime?type=${type}&order_by=score&sort=desc&page=${Math.floor(Math.random() * 2) + 1}`;
             if (genres) apiUrl += `&genres=${genres}`;
             if (studio) apiUrl += `&producers=${studio}`;
             
@@ -209,8 +186,8 @@
                 const data = await response.json();
                 if (data.data && data.data.length > 0) {
                     displayAnime(data.data[Math.floor(Math.random() * data.data.length)]);
-                } else { alert("Kombinasi filter terlalu spesifik."); }
-            } catch (error) { alert("Server Sibuk!"); }
+                } else { alert("Coba ganti filter!"); }
+            } catch (error) { alert("Error!"); }
             finally { loading.classList.add('hidden'); }
         }
 
@@ -219,20 +196,22 @@
             document.getElementById('animeTitleJP').innerText = anime.title_japanese || "";
             document.getElementById('animeImg').src = anime.images.jpg.large_image_url;
             document.getElementById('animeRating').innerHTML = `⭐ ${anime.score || 'N/A'}`;
-            document.getElementById('animeSynopsis').innerText = anime.synopsis || "No synopsis.";
+            document.getElementById('animeSynopsis').innerText = anime.synopsis || "No description.";
             currentSynopsis = anime.synopsis || "";
             document.getElementById('malLink').href = anime.url;
-            document.getElementById('infoSeason').innerText = (anime.season ? anime.season + " " + anime.year : "N/A Year");
+            document.getElementById('infoSeason').innerText = (anime.season ? anime.season + " " + anime.year : "N/A");
             document.getElementById('infoEpisodes').innerText = `${anime.episodes || '?'} Eps`;
             document.getElementById('infoDuration').innerText = anime.duration || "? Min";
-            const genreContainer = document.getElementById('animeGenres');
-            genreContainer.innerHTML = '';
+            
+            const gContainer = document.getElementById('animeGenres');
+            gContainer.innerHTML = '';
             anime.genres.forEach(g => {
-                const span = document.createElement('span');
-                span.className = "bg-blue-600/10 text-blue-500 text-[8px] font-black px-2 py-1 rounded-md uppercase border border-blue-600/20";
-                span.innerText = g.name;
-                genreContainer.appendChild(span);
+                const s = document.createElement('span');
+                s.className = "bg-blue-600/10 text-blue-500 text-[8px] font-black px-2 py-1 rounded-md uppercase border border-blue-600/20";
+                s.innerText = g.name;
+                gContainer.appendChild(s);
             });
+
             if (anime.trailer && anime.trailer.embed_url) {
                 currentTrailerUrl = anime.trailer.embed_url;
                 trailerBtn.classList.remove('hidden');
@@ -256,64 +235,32 @@
             } catch (e) { translateBtn.innerText = "Error"; }
         }
 
-        // --- PWA LOGIC ---
-        let deferredPrompt;
-        const installContainer = document.getElementById('installContainer');
-        const installBtn = document.getElementById('installBtn');
+        // --- PWA / INSTALL LOGIC ---
+        let installPrompt;
+        const pwaContainer = document.getElementById('pwaDownloadContainer');
+        const pwaBtn = document.getElementById('pwaDownloadBtn');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
-            deferredPrompt = e;
-            installContainer.classList.remove('hidden');
+            installPrompt = e;
+            pwaContainer.classList.remove('hidden');
         });
 
-        installBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                deferredPrompt = null;
-                installContainer.classList.add('hidden');
+        pwaBtn.addEventListener('click', async () => {
+            if (installPrompt) {
+                installPrompt.prompt();
+                const { outcome } = await installPrompt.userChoice;
+                if (outcome === 'accepted') pwaContainer.classList.add('hidden');
+                installPrompt = null;
             }
         });
+
+        window.addEventListener('appinstalled', () => pwaContainer.classList.add('hidden'));
 
         trailerBtn.addEventListener('click', () => { document.getElementById('trailerFrame').src = currentTrailerUrl; videoModal.classList.remove('hidden'); });
         document.getElementById('closeModal').addEventListener('click', () => { videoModal.classList.add('hidden'); document.getElementById('trailerFrame').src = ""; });
         fetchBtn.addEventListener('click', getRandomAnime);
         translateBtn.addEventListener('click', translateText);
-
-        // Logika Pemicu Instalasi PWA
-let installPrompt;
-const pwaContainer = document.getElementById('pwaDownloadContainer');
-const pwaBtn = document.getElementById('pwaDownloadBtn');
-
-window.addEventListener('beforeinstallprompt', (event) => {
-    // Simpan event agar bisa dipicu nanti
-    event.preventDefault();
-    installPrompt = event;
-    // Munculkan tombol jika browser mendukung instalasi
-    pwaContainer.classList.remove('hidden');
-});
-
-pwaBtn.addEventListener('click', async () => {
-    if (!installPrompt) return;
-    
-    // Munculkan dialog instalasi bawaan browser
-    installPrompt.prompt();
-    
-    const { outcome } = await installPrompt.userChoice;
-    if (outcome === 'accepted') {
-        console.log('User menginstal aplikasi');
-        pwaContainer.classList.add('hidden');
-    }
-    installPrompt = null;
-});
-
-// Sembunyikan tombol jika aplikasi sudah terinstal
-window.addEventListener('appinstalled', () => {
-    pwaContainer.classList.add('hidden');
-    console.log('AnimePicker sudah terpasang!');
-});
-
     </script>
 </body>
 </html>
